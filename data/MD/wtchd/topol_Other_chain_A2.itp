@@ -1,0 +1,35 @@
+;
+;	File 'topol_Other_chain_A2.itp' was generated
+;	By user: kiv (1000)
+;	On host: KivBeast
+;	At date: Tue Jan 10 17:17:20 2023
+;
+;	This is a include topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2022.3 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /home/kiv/Desktop/Gromacs/23.1_CHD_zn_nosub_CH_fixedbonds
+;	Command line:
+;	  gmx pdb2gmx -f 6uxu_clean.pdb -o 6uxu_processed.gro
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Other_chain_A2      3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 401 ZN2 rtp ZN2  q +2.0
+     1         ZN    401    ZN2     ZN      1          2      65.37   ; qtot 2
+; residue 402 ZN2 rtp ZN2  q +2.0
+     2         ZN    402    ZN2     ZN      2          2      65.37   ; qtot 4
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre_Other_chain_A2.itp"
+#endif
+

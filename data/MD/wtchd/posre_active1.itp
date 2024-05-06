@@ -1,0 +1,5 @@
+; distance restraints for a_7495_9263 of CHLOROTHALONIL HYDROLYTIC DEHALOGENASE in water
+
+[ distance_restraints ]
+;   i     j ? label      funct         lo        up1        up2     weight
+ 2863  4631 1     0          1   0.150000   0.230000   0.250000          1

@@ -1,0 +1,64 @@
+;
+;	File 'topol.top' was generated
+;	By user: kiv (1000)
+;	On host: KivBeast
+;	At date: Tue Jan 10 20:24:20 2023
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2022.3 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /home/kiv/Desktop/Gromacs/23.1_CHD_zn_nosub_CH_fixedbonds_copy
+;	Command line:
+;	  gmx pdb2gmx -f 6uxu_clean.pdb -o 6uxu_processed.gro -merge interactive
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "./charmm36-jul2021.ff/forcefield.itp"
+
+; Include chain topologies
+#include "topol_Protein_chain_A.itp"
+
+; Active site distance restraint for chain A
+[ distance_restraints ]
+;   i     j ? label      funct         lo        up1        up2     weight
+ 2863  4631 1     0          1   0.111971   0.230000    0.235000          1
+
+; Include chain topologies
+#include "topol_Protein_chain_B.itp"
+
+; Active site distance restraint for chain B
+; [ distance_restraints ]
+;   i     j ? label      funct         lo        up1        up2     weight
+; 2863  4631 1     1          1   0.111971   0.250000    1.00000          1
+
+; Include water topology
+#include "./charmm36-jul2021.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "./charmm36-jul2021.ff/ions.itp"
+
+[ system ]
+; Name
+CHLOROTHALONIL HYDROLYTIC DEHALOGENASE in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Protein_chain_B     1
+SOL                 1
+SOL                 1
+SOL         27161
+SOD              56
+CLA              60
